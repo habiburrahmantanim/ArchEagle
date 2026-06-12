@@ -11,13 +11,7 @@ interface ApiResponse {
 }
 
 export async function postContact(data: ContactFormData): Promise<ApiResponse> {
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-
-  if (!apiUrl) {
-    throw new Error("API URL is not configured");
-  }
-
-  const response = await fetch(`${apiUrl}/contact`, {
+  const response = await fetch("/api/contact", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
